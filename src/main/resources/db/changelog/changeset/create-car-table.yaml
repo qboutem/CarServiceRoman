@@ -1,0 +1,92 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-car
+      author: qb
+      changes:
+        - createTable:
+            tableName: car
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: owner_email
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: brand
+                  type: varchar(100)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: model
+                  type: varchar(100)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: year_of_manufacturer
+                  type: int
+                  constraints:
+                    nullable: false
+              - column:
+                  name: vehicle_identification_number
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: registration_number
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: mileage
+                  type: int
+                  constraints:
+                    nullable: false
+              - column:
+                  name: engine_model
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: engine_volume
+                  type: float
+                  constraints:
+                    nullable: false
+              - column:
+                  name: fuel_type
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: transmission_type
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: color
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: body_type
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+        - addForeignKeyConstraint:
+            baseColumnNames: owner_email
+            baseTableCatalogName: cardb
+            baseTableName: car
+            constraintName: fk_car_user
+            referencedColumnNames: email
+            referencedTableCatalogName: userdb
+            referencedTableName: user
+
+
+
+
+
